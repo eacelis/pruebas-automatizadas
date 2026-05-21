@@ -1,0 +1,37 @@
+{
+  "name": "misw-4103-resemblejs",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Repositorio base para el uso de Pruebas de Regresión Visual utilizando ResembleJs",
+  "keywords": [
+    "visual",
+    "regression",
+    "vrt",
+    "resemblejs",
+    "image",
+    "comparison",
+    "playwright"
+  ],
+  "contributors": [
+    {
+      "name": "Rocio del Pilar Correa",
+      "email": "rd.correa97@uniandes.edu.co"
+    },
+    {
+      "name": "Santiago Cortés Fernández",
+      "email": "s.cortes@uniandes.edu.co"
+    }
+  ],
+  "main": "playwright.config.js",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "report": "node index.js"
+  },
+  "dependencies": {
+    "canvas": "^3.1.0",
+    "resemblejs": "^5.0.0"
+  }
+}

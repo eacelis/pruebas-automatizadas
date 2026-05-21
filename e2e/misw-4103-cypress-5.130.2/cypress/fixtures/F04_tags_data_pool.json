@@ -1,0 +1,79 @@
+[
+  {
+    "id": "01",
+    "description": "Tag name válido corto",
+    "input": {
+      "name": "tag-valido-normal-apr01",
+      "slug": "tag-valido-normal-apr01",
+      "description": "Tag con nombre válido normal para prueba a-priori"
+    },
+    "expected": "success",
+    "oracle": "tag visible en listado con nombre correcto"
+  },
+  {
+    "id": "02",
+    "description": "Tag name válido de 191 chars (límite máximo de Ghost)",
+    "input": {
+      "name": "tag191charsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "slug": "tag-191-chars-apr02",
+      "description": "Tag en el límite máximo de 191 caracteres"
+    },
+    "expected": "success",
+    "oracle": "Ghost acepta tag names de hasta 191 caracteres"
+  },
+  {
+    "id": "03",
+    "description": "Tag name de 192 chars (supera límite de 191)",
+    "input": {
+      "name": "tag192charsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "slug": "tag-192-chars-apr03",
+      "description": ""
+    },
+    "expected": "error",
+    "oracle": "Ghost rechaza tag names de 192+ caracteres: Tag names cannot be longer than 191 characters"
+  },
+  {
+    "id": "04",
+    "description": "Tag name vacío",
+    "input": {
+      "name": "",
+      "slug": "",
+      "description": ""
+    },
+    "expected": "error",
+    "oracle": "Ghost muestra error: You must specify a name for the tag"
+  },
+  {
+    "id": "05",
+    "description": "Tag name con solo espacios",
+    "input": {
+      "name": "   ",
+      "slug": "",
+      "description": ""
+    },
+    "expected": "error",
+    "oracle": "Ghost trata nombre de solo espacios como inválido y muestra error de validación"
+  },
+  {
+    "id": "06",
+    "description": "Tag name con caracteres Unicode y emoji",
+    "input": {
+      "name": "tag-unicode-apr06",
+      "slug": "tag-unicode-apr06",
+      "description": "Tag con nombre que incluye caracteres unicode"
+    },
+    "expected": "success",
+    "oracle": "Ghost acepta caracteres unicode en nombre de tag"
+  },
+  {
+    "id": "07",
+    "description": "Tag name con caracteres especiales HTML (<, >, &)",
+    "input": {
+      "name": "tag & test <apr07>",
+      "slug": "tag-special-apr07",
+      "description": "Tag con caracteres especiales HTML"
+    },
+    "expected": "success",
+    "oracle": "Ghost sanitiza o acepta caracteres especiales en nombre de tag sin XSS"
+  }
+]

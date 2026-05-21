@@ -1,0 +1,72 @@
+[
+  {
+    "id": "01",
+    "description": "Título de página válido normal (30 chars)",
+    "input": {
+      "title": "Página APR01 Título Válido",
+      "content": "Contenido de prueba para la página estática APR01"
+    },
+    "expected": "success",
+    "oracle": "página publicada y visible en el listado con el título correcto"
+  },
+  {
+    "id": "02",
+    "description": "Título de página con tildes y ñ",
+    "input": {
+      "title": "Página APR02 Ñoño Descripción",
+      "content": "Contenido de prueba con caracteres especiales del español"
+    },
+    "expected": "success",
+    "oracle": "Ghost acepta y muestra correctamente títulos de página con caracteres españoles"
+  },
+  {
+    "id": "03",
+    "description": "Título de página en el límite (255 chars)",
+    "input": {
+      "title": "Page255charsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "content": "Contenido de prueba para página con título en límite de 255 chars"
+    },
+    "expected": "success",
+    "oracle": "Ghost acepta títulos de página de hasta 255 caracteres"
+  },
+  {
+    "id": "04",
+    "description": "Título de página vacío",
+    "input": {
+      "title": "",
+      "content": "Contenido de prueba de página sin título"
+    },
+    "expected": "error",
+    "oracle": "Ghost muestra error de validación o guarda la página como sin título"
+  },
+  {
+    "id": "05",
+    "description": "Título de página con solo espacios",
+    "input": {
+      "title": "   ",
+      "content": "Contenido de prueba con título de espacios en página"
+    },
+    "expected": "error",
+    "oracle": "Ghost trata título de página de solo espacios como inválido o vacío"
+  },
+  {
+    "id": "06",
+    "description": "Título de página con HTML injection",
+    "input": {
+      "title": "<b>Página</b> <script>alert('xss')</script>",
+      "content": "Contenido de prueba con inyección HTML en título de página"
+    },
+    "expected": "success",
+    "oracle": "Ghost sanitiza o escapa HTML en título de página sin ejecutar scripts"
+  },
+  {
+    "id": "07",
+    "description": "Título de página con emoji y caracteres unicode",
+    "input": {
+      "title": "Página APR07 🌟 Bienvenida ✨",
+      "content": "Contenido de prueba con emoji en el título de la página"
+    },
+    "expected": "success",
+    "oracle": "Ghost acepta y muestra correctamente emoji en el título de la página"
+  }
+]

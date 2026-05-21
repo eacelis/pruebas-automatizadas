@@ -1,0 +1,35 @@
+{
+  "name": "misw-4103-cypress-5-130-2",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "",
+  "description": "Repositorio base para el uso Pruebas Automatizadas utilizando Cypress",
+  "keywords": [
+    "cypress",
+    "misw"
+  ],
+  "main": "cypress.config.js",
+  "directories": {
+    "test": "__tests__"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "prepare": "npx cypress install",
+    "test": "cypress run --browser electron",
+    "test:ui": "cypress open"
+  },
+  "dependencies": {
+    "cypress": "^14.2.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "commander": "^10.0.1",
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "fs-extra": "^11.3.5",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
+  }
+}

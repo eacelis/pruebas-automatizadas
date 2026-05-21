@@ -1,0 +1,48 @@
+{
+  "name": "proyecto-base",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "",
+  "description": "Proyecto base para el curso Pruebas Automatizadas de Software",
+  "keywords": [
+    "jest",
+    "puppeteer",
+    "misw"
+  ],
+  "homepage": "https://github.com/Uniandes-MISW4103/proyecto-base#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uniandes-MISW4103/proyecto-base.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Uniandes-MISW4103/proyecto-base/issues"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "workspaces": [
+    "e2e/*",
+    "reconocimiento/*",
+    "vrt/*"
+  ],
+  "scripts": {
+    "cypress:install": "npm install --install-strategy=nested -w misw-4103-cypress",
+    "cypress:prepare": "npm run prepare -w misw-4103-cypress",
+    "cypress:test": "npm run test -w misw-4103-cypress",
+    "cypress:ui": "npm run test:ui -w misw-4103-cypress",
+    "kraken:install": "npm install -w misw-4103-kraken",
+    "kraken:prepare": "npm run prepare -w misw-4103-kraken",
+    "kraken:test": "npm run test -w misw-4103-kraken",
+    "kraken:ui": "npm run test:ui -w misw-4103-kraken",
+    "resemblejs:install": "npm install --install-strategy=nested -w misw-4103-resemblejs",
+    "resemblejs:prepare": "npm run prepare -w misw-4103-resemblejs",
+    "resemblejs:test": "npm run test -w misw-4103-resemblejs",
+    "resemblejs:report": "npm run report -w misw-4103-resemblejs",
+    "install:e2e": "cd e2e && npm run install:all",
+    "test:cypress:latest": "cd e2e && npm run test:cypress:latest",
+    "test:cypress:rc": "cd e2e && npm run test:cypress:rc",
+    "test:kraken:latest": "cd e2e && npm run test:kraken:latest",
+    "test:kraken:rc": "cd e2e && npm run test:kraken:rc",
+    "vrt": "cd vrt/misw-4103-resemblejs && node index.js"
+  }
+}

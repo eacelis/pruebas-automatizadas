@@ -1,0 +1,27 @@
+Feature: F05 - Members con Data Pool A-Priori (Scenario Outline)
+
+  @F05-APR @web @user1
+  Scenario Outline: [F05-APR-<id>] <description>
+    Given I navigate to Ghost admin login page
+    And I login with admin credentials
+    And I navigate to the Members section
+    Given I click on New member button
+    And I fill in the member name "<name>"
+    And I fill in the member email field for apriori "<email>"
+    And I save the member
+    Then the member creation should result in "<expected>"
+
+    Examples:
+      | id | description                                  | name                  | email                               | expected |
+      | 01 | Email válido formato correcto                | Member APR KR01       | member.apr.kr01@pruebas.com         | success  |
+      | 02 | Email sin @ (inválido)                       | Member APR KR02       | emailsinarroba                      | error    |
+      | 03 | Email sin dominio                            | Member APR KR03       | emailsindominio@                    | error    |
+      | 04 | Email vacío                                  | Member APR KR04       |                                     | error    |
+      | 05 | Email con espacios (inválido)                | Member APR KR05       | email con espacios@test.com         | error    |
+      | 06 | Email válido con + en local-part             | Member APR KR06       | member+tag.kr06@pruebas.com         | success  |
+      | 07 | Email válido con subdominio                  | Member APR KR07       | member.apr.kr07@sub.pruebas.com     | success  |
+      | 08 | Email con punto al inicio (inválido RFC)     | Member APR KR08       | .member@test.com                    | error    |
+      | 09 | Nombre con caracteres especiales válidos     | María García López    | member.apr.kr09@pruebas.com         | success  |
+      | 10 | Email válido formato gmail                   | Member APR KR10       | member.apr.kr10@gmail.com           | success  |
+      | 11 | Email doble arroba (inválido)                | Member APR KR11       | email@@test.com                     | error    |
+      | 12 | Email válido con números                     | Member APR KR12       | member123.kr12@pruebas.com          | success  |

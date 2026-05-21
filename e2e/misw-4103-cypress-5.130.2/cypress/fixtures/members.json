@@ -1,0 +1,21 @@
+{
+  "EP17": {
+    "name": "Ana García",
+    "email": "ana.garcia.ep17@test.com"
+  },
+  "EP18": {
+    "name": "Carlos López",
+    "email": "carlos.lopez.ep18@test.com",
+    "label": "VIP"
+  },
+  "EP19": {
+    "name": "Maria Torres",
+    "email": "maria.torres.ep19@test.com",
+    "updatedName": "Maria Torres Actualizada",
+    "note": "Nota de contacto actualizada en prueba EP19"
+  },
+  "EP20": {
+    "name": "Pedro Ruiz",
+    "email": "pedro.ruiz.ep20@test.com"
+  }
+}

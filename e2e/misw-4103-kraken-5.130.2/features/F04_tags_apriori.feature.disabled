@@ -1,0 +1,26 @@
+Feature: F04 - Tags con Data Pool A-Priori (Scenario Outline)
+
+  @F04-APR @web @user1
+  Scenario Outline: [F04-APR-<id>] <description>
+    Given I navigate to Ghost admin login page
+    And I login with admin credentials
+    And I navigate to the Tags section
+    Given I navigate to the new tag form
+    When I type the tag name "<name>"
+    And I submit the tag form
+    Then the tag creation should result in "<expected>"
+
+    Examples:
+      | id | description                                   | name                                                                                                                                                                                                    | expected |
+      | 01 | Tag name válido corto                         | tag-valido-normal-krapr01                                                                                                                                                                               | success  |
+      | 02 | Tag name válido con descripción               | tag-con-descripcion-krapr02                                                                                                                                                                             | success  |
+      | 03 | Tag name válido 191 chars (límite)            | tag191kraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa         | success  |
+      | 04 | Tag name de 192 chars (supera límite)         | tag192kraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa        | error    |
+      | 05 | Tag name vacío                                |                                                                                                                                                                                                         | error    |
+      | 06 | Tag name con caracteres especiales HTML       | tag & kr <special> apr06                                                                                                                                                                                | success  |
+      | 07 | Tag name válido con números                   | tag-numerico-2024-krapr07                                                                                                                                                                               | success  |
+      | 08 | Tag name válido con guiones                   | tag-con-guiones-y-mas-krapr08                                                                                                                                                                           | success  |
+      | 09 | Tag name con tildes y ñ                       | tag-español-ñoño-krapr09                                                                                                                                                                                | success  |
+      | 10 | Tag name solo espacios                        |                                                                                                                                                                                                         | error    |
+      | 11 | Tag name válido con mayúsculas                | TAG-MAYUSCULAS-KRAPR11                                                                                                                                                                                  | success  |
+      | 12 | Tag name válido muy corto (1 char)            | Z                                                                                                                                                                                                       | success  |

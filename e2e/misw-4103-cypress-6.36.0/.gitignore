@@ -1,0 +1,10 @@
+# Cypress screen captures
+cypress/videos/
+cypress/screenshots/
+cypress.env.json
+
+*.png
+!cypress/fixtures/images/cover.png
+!cypress/fixtures/images/tag.png
+*.html
+*.mp4

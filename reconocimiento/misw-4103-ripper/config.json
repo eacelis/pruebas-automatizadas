@@ -1,0 +1,12 @@
+{
+  "baseUrl": "http://localhost:2368",
+  "url": "/ghost/#/signin",
+  "headless": false,
+  "depthLevels": 3,
+  "inputValues": true,
+  "values": {
+    "identification": "cientificstudy@gmail.com",
+    "password": "ingeniero1999"
+  },
+  "browsers": ["chromium"]
+}

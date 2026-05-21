@@ -1,0 +1,72 @@
+[
+  {
+    "id": "01",
+    "description": "Título válido normal (30 chars alfanumérico)",
+    "input": {
+      "title": "Post APR01 Título Válido Normal",
+      "content": "Contenido de prueba para el post APR01 con datos a-priori"
+    },
+    "expected": "success",
+    "oracle": "post publicado y visible en el listado con el título correcto"
+  },
+  {
+    "id": "02",
+    "description": "Título válido con tildes y ñ",
+    "input": {
+      "title": "Post APR02 Ñoño Corazón Español",
+      "content": "Contenido de prueba con caracteres especiales del español"
+    },
+    "expected": "success",
+    "oracle": "Ghost acepta y muestra correctamente títulos con caracteres españoles"
+  },
+  {
+    "id": "03",
+    "description": "Título en el límite superior (255 chars)",
+    "input": {
+      "title": "Post255charsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "content": "Contenido de prueba para post con título en límite de 255 chars"
+    },
+    "expected": "success",
+    "oracle": "Ghost acepta títulos de hasta 255 caracteres"
+  },
+  {
+    "id": "04",
+    "description": "Título vacío",
+    "input": {
+      "title": "",
+      "content": "Contenido de prueba sin título definido"
+    },
+    "expected": "error",
+    "oracle": "Ghost muestra error de validación o guarda el post como sin título (Untitled)"
+  },
+  {
+    "id": "05",
+    "description": "Título con solo espacios",
+    "input": {
+      "title": "   ",
+      "content": "Contenido de prueba con título de espacios"
+    },
+    "expected": "error",
+    "oracle": "Ghost trata título de solo espacios como inválido o normaliza a vacío"
+  },
+  {
+    "id": "06",
+    "description": "Título con HTML injection",
+    "input": {
+      "title": "<script>alert('xss-apr06')</script>",
+      "content": "Contenido de prueba con inyección HTML en título"
+    },
+    "expected": "success",
+    "oracle": "Ghost sanitiza o escapa HTML en el título del post sin ejecutar scripts"
+  },
+  {
+    "id": "07",
+    "description": "Título con emoji",
+    "input": {
+      "title": "Post APR07 con emoji 🚀 y más 🎯",
+      "content": "Contenido de prueba con emoji en el título"
+    },
+    "expected": "success",
+    "oracle": "Ghost acepta y muestra correctamente emoji en el título del post"
+  }
+]

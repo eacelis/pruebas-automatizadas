@@ -1,0 +1,10 @@
+{
+  "name": "ghost-e2e",
+  "scripts": {
+    "install:all": "npm install --install-strategy=nested --prefix misw-4103-cypress-5.130.2 && npm install --install-strategy=nested --prefix misw-4103-cypress-6.36.0 && npm install --prefix misw-4103-kraken-5.130.2 && npm install --prefix misw-4103-kraken-6.36.0",
+    "test:cypress:latest": "cd misw-4103-cypress-6.36.0 && npm test",
+    "test:cypress:rc": "cd misw-4103-cypress-5.130.2 && npm test",
+    "test:kraken:latest": "cd misw-4103-kraken-6.36.0 && npm test",
+    "test:kraken:rc": "cd misw-4103-kraken-5.130.2 && npm test"
+  }
+}

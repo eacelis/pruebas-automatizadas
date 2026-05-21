@@ -1,0 +1,33 @@
+{
+  "name": "misw-4103-kraken-5-130-2",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "",
+  "description": "Repositorio base para el uso Pruebas Automatizadas utilizando Kraken",
+  "keywords": [
+    "kraken",
+    "misw"
+  ],
+  "directories": {
+    "test": "features"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "prepare": "",
+    "clean:reports": "rimraf reports",
+    "test": "npm run clean:reports && npx kraken-node run",
+    "test:ui": "npm run clean:reports && npx kraken-node run"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "7.2.1",
+    "@faker-js/faker": "^9.9.0",
+    "chai": "^4.3.7",
+    "fs-extra": "^11.3.0",
+    "kraken-node": "^1.0.24"
+  },
+  "devDependencies": {
+    "rimraf": "^6.1.3"
+  }
+}

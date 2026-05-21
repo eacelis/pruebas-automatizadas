@@ -1,0 +1,72 @@
+[
+  {
+    "id": "01",
+    "description": "Email válido con formato correcto",
+    "input": {
+      "email": "test.valid.apr01@pruebas.com",
+      "name": "Test Member APR01"
+    },
+    "expected": "success",
+    "oracle": "member con email válido aparece en listado de members"
+  },
+  {
+    "id": "02",
+    "description": "Email sin @ (formato inválido)",
+    "input": {
+      "email": "emailsinarroba",
+      "name": "Test Member APR02"
+    },
+    "expected": "error",
+    "oracle": "Ghost muestra error de validación: email inválido sin @"
+  },
+  {
+    "id": "03",
+    "description": "Email sin dominio (solo local-part y @)",
+    "input": {
+      "email": "emailsindominio@",
+      "name": "Test Member APR03"
+    },
+    "expected": "error",
+    "oracle": "Ghost rechaza email sin dominio después del @"
+  },
+  {
+    "id": "04",
+    "description": "Email vacío (campo requerido)",
+    "input": {
+      "email": "",
+      "name": "Test Member APR04"
+    },
+    "expected": "error",
+    "oracle": "Ghost requiere email obligatorio para registrar un member"
+  },
+  {
+    "id": "05",
+    "description": "Email con espacios (inválido)",
+    "input": {
+      "email": "email con espacios@test.com",
+      "name": "Test Member APR05"
+    },
+    "expected": "error",
+    "oracle": "Ghost rechaza email con espacios en blanco"
+  },
+  {
+    "id": "06",
+    "description": "Nombre con más de 191 chars",
+    "input": {
+      "email": "long.name.member.apr06@pruebas.com",
+      "name": "NombreMuyLargoParaProbarElLimiteDeGhostCMSaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "expected": "error",
+    "oracle": "Ghost rechaza nombres de member superiores al límite de 191 caracteres"
+  },
+  {
+    "id": "07",
+    "description": "Email con caracteres especiales válidos en local-part",
+    "input": {
+      "email": "user+tag.filter_test@pruebas.com",
+      "name": "Test Member APR07"
+    },
+    "expected": "success",
+    "oracle": "Ghost acepta email con +, ., _ en la parte local (RFC 5321)"
+  }
+]

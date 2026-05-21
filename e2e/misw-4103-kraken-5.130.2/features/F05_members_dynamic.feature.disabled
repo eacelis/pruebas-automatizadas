@@ -1,0 +1,27 @@
+Feature: F05 - Members con Datos Dinámicos (Online Faker)
+
+  @dynamic-member @web @user1
+  Scenario Outline: [F05-DYN-<id>] Member con email dinámico
+    Given I navigate to Ghost admin login page
+    And I login with admin credentials
+    And I navigate to the Members section
+    Given I click on New member button
+    When I fill the member name with the dynamic value
+    And I fill the member email with the dynamic value for "<expected>"
+    And I save the member
+    Then the member creation should result in "<expected>"
+
+    Examples:
+      | id | expected |
+      | 01 | success  |
+      | 02 | success  |
+      | 03 | success  |
+      | 04 | success  |
+      | 05 | success  |
+      | 06 | success  |
+      | 07 | success  |
+      | 08 | success  |
+      | 09 | success  |
+      | 10 | success  |
+      | 11 | error    |
+      | 12 | error    |
